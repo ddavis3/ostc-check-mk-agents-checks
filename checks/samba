@@ -1,8 +1,12 @@
 #!/usr/bin/python
 # Example output from agent:
-# 0 Service_FOO V=1 This Check is OK
-# 1 Bar_Service - This is WARNING and has no performance data
-# 2 NotGood V=120;50;100;0;1000 A critical check
+# 0 Samba_Service V=1 Connected to Samba on Depot OK
+# 1 Samba_Service Bad Authentication. 
+# 2 Samba_Service DOWN FIXIT!
+
+from smb.SMBConnection import SMBConnection
+import sys
+import socket
 
 def inventory_samba(info):
    
@@ -11,6 +15,7 @@ def inventory_samba(info):
     return inventory
 
 def check_samba(item, params, info):
+    print info
     return (3, "Check output not found in local checks")
 
 
