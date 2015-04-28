@@ -1,0 +1,22 @@
+#!/usr/bin/python
+# Example output from agent:
+# 0 Service_FOO V=1 This Check is OK
+# 1 Bar_Service - This is WARNING and has no performance data
+# 2 NotGood V=120;50;100;0;1000 A critical check
+
+def inventory_samba(info):
+   
+    inventory = []
+    print info
+    return inventory
+
+def check_samba(item, params, info):
+    return (3, "Check output not found in local checks")
+
+
+check_info["samba"] = {
+    'check_function':          check_samba,
+    'inventory_function':      inventory_samba,
+    'service_description':     'check connection to samba state',
+    'has_perfdata':            False,
+}
